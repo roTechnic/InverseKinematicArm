@@ -37,7 +37,7 @@ void moveToAngle(double b, double a1, double a2, double g) {
   gripservo.writeMicroseconds(angleToMicroseconds(g));
 }
 
-void moveToPos(double x, double y, double z) {
+void moveToPos(double x, double y, double z, double g) {
   double b = atan2(y,x) * (180 / 3.1415); // base angle
 
   double l = sqrt(x*x + y*y); // x and y extension 
@@ -51,7 +51,7 @@ void moveToPos(double x, double y, double z) {
   double a1 = phi + theta; // angle for first part of the arm
   double a2 = phi - theta; // angle for second part of the arm
 
-  moveToAngle(b,a1,a2);
+  moveToAngle(b,a1,a2,g);
 }
 
 void setup() {
